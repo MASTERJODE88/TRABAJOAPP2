@@ -1,0 +1,31 @@
+<div class="well well-sm text-right">
+    <a class="btn btn-primary" href="/solicitud"><i class="fa fa-plus"></i> Nueva solicitud</a>
+</div>
+<h3> Lista de solicitudes</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre del cliente</th>
+            <th>Email</th>
+            <th>Problema reportado</th>
+            <th>Detalles</th>
+            <th>Estatus</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.NombreCompleto}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.Problema}}</td>
+            <td>{{this.Info}}</td>
+            <td>{{this.Estatus}}</td>
+            <td>
+                <a href="/solicitud/{{this._id}}"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/solicitud/delete/{{this._id}}" onclick="return confirm('¿Estás seguro de eliminar este registro?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
